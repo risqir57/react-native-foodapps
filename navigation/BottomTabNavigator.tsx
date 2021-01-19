@@ -5,7 +5,7 @@ import * as React from 'react';
 
 import HomeScreen from '../screens/HomeScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
-import { BottomTabParamList, TabOneParamList, TabTwoParamList } from '../types';
+import { BottomTabParamList, HomeParamList, TabTwoParamList } from '../types';
 
 const BottomTab = createMaterialBottomTabNavigator<BottomTabParamList>();
 
@@ -15,6 +15,7 @@ export default function BottomTabNavigator() {
       initialRouteName="Home"
       shifting={true}
       sceneAnimationEnabled={false}
+      style={{backgroundColor: '#fff'}}
     >
       <BottomTab.Screen
         name="Home"
@@ -42,7 +43,7 @@ function TabBarIcon(props: { name: React.ComponentProps<typeof Feather>['name'];
 
 // Each tab has its own navigation stack, you can read more about this pattern here:
 // https://reactnavigation.org/docs/tab-based-navigation#a-stack-navigator-for-each-tab
-const TabOneStack = createStackNavigator<TabOneParamList>();
+const TabOneStack = createStackNavigator<HomeParamList>();
 
 function TabOneNavigator() {
   return (
@@ -50,7 +51,7 @@ function TabOneNavigator() {
         headerMode={"none"}
     >
       <TabOneStack.Screen
-        name="TabOneScreen"
+        name="HomeScreen"
         component={HomeScreen}
         options={{ headerTitle: 'Tab One Title' }}
       />
